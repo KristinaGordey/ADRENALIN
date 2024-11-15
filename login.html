@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Адреналин :: Вход</title>
+    <style> .error-message { color: red; display: none; /* Скрыть по умолчанию */ } </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Danfo&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -241,10 +242,10 @@
 
                             <div class="row">
                                 <div class="col-md-6 offset-md-3">
-                                    <form action="" class="needs-validation" novalidate>
+                                    <form action="login.php" method = "POST" class="needs-validation" id = "login-form"novalidate>
                                         <div class="mb-3">
-                                            <label for="name" class="form-label required">Имя</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Имя"
+                                            <label for="username" class="form-label required">Имя</label>
+                                            <input type="text" class="form-control" id="username" name ="username" placeholder="Имя"
                                                 required>
                                             <div class="invalid-feedback">
                                                 Необходимо ввести имя
@@ -252,7 +253,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="password" class="form-label required">Пароль</label>
-                                            <input type="password" class="form-control" id="password"
+                                            <input type="password" class="form-control" id="password" name = "password"
                                                 placeholder="Пароль" required>
                                             <div class="invalid-feedback">
                                                 Необходимо ввести пароль
@@ -262,6 +263,7 @@
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-outline-secondary sbmtbtn">Войти</button>
                                         </div>
+                                        <p class="error-message" id="error-message">Неверный логин или пароль.</p>
 
                                     </form>
                                     <a href="register.html">У меня еще нет аккаунта</a>
@@ -334,8 +336,12 @@
     <button id="top">
         <i class="fa fa-arrow-up" aria-hidden="true"></i>
     </button>
-    <script scr ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
     <script src="assets/js/main.js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src = "login.js"></script>
+    
 </body>
 </html>
