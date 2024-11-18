@@ -193,6 +193,7 @@ ul.social-icons a:hover {
 .header-bottom {
     border-top: 3px solid var(--accent-color);
     box-shadow: 0 10px 10px rgba(0,0,0,.3);
+    
 }
 .header-bottom .navbar .dropdown-menu{
     background-color: var(--contrast-color) !important;

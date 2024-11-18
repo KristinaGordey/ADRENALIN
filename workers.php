@@ -228,7 +228,7 @@
                             </h2>
                         </div>
                     </div>
-                    <div class="row workers-row">
+                    <!--<div class="row workers-row">
                         <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                             <div class="worker-card">
                                 <div class="worker-photo">
@@ -514,7 +514,40 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div>-->
+                    <div class="container"> 
+                        <div class="row"> 
+                            <?php include 'config.php'; 
+                            $sql = "SELECT full_name, description, photo_path FROM trainers";
+                            $result = $conn->query($sql); 
+                            if ($result->num_rows > 0) { 
+                                while ($row = $result->fetch_assoc()) { 
+                                    
+                                    echo '<div class="col-lg-3 col-md-4 col-sm-6 mb-3">'; 
+                                    echo ' <div class="worker-card">'; 
+                                    echo ' <div class="worker-photo">'; 
+                                    echo ' <a href="workers.php"><img src="' . $row["photo_path"] . '" alt=""></a>';
+                                    echo ' </div>'; echo ' <div class="worker-details">'; 
+                                    echo ' <h4>'; 
+                                    echo ' <a href="workers.php">' . $row["full_name"] . '</a>'; 
+                                    echo ' </h4>';
+                                    echo ' <p class="worker-excerpt">' . $row["description"] . '</p>';
+                                    echo ' <div class="worker-links d-flex justify-content-end">'; 
+                                    echo ' <a href="login.html" class="btn btn-outline-secondary add-to-form">'; 
+                                    echo ' Записаться';
+                                    echo ' </a>'; 
+                                    echo ' </div>'; 
+                                    echo ' </div>'; 
+                                    echo ' </div>'; 
+                                    echo '</div>';
+                                     } } 
+                                else { 
+                                    echo "<p>Данные не найдены</p>";
+                                     } 
+                            $conn->close(); 
+                            ?> 
+                        </div>
+                     </div>
                     
                 </div>
                 

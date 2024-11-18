@@ -54,29 +54,29 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 });
-//календарь на странице записи
-$(document).ready(function() { 
-    // Инициализация календаря 
-    $('#calendar').fullCalendar({
-         header: { 
-            left: 'prev,next today', 
-            center: 'title', 
-            right: 'month,agendaWeek,agendaDay' 
-        },
-        locale: 'ru', 
-        defaultView: 'month', // Устанавливаем вид по умолчанию - месячный 
-        editable: false, 
-        selectable: true, 
+// //календарь на странице записи
+// $(document).ready(function() { 
+//     // Инициализация календаря 
+//     $('#calendar').fullCalendar({
+//          header: { 
+//             left: 'prev,next today', 
+//             center: 'title', 
+//             right: 'month,agendaWeek,agendaDay' 
+//         },
+//         locale: 'ru', 
+//         defaultView: 'month', // Устанавливаем вид по умолчанию - месячный 
+//         editable: false, 
+//         selectable: true, 
         
-        select: function(start, end, jsEvent, view) {
-             var date = moment(start).format('YYYY-MM-DD'); 
-             alert('Вы выбрали дату: ' + date);
-             }, 
-             eventLimit: true, // Показать "больше" в случае превышения количества событий
-             validRange: { start: moment().format('YYYY-MM-DD') // Минимальная дата - текущая дата 
-                }
-        });
-    });
+//         select: function(start, end, jsEvent, view) {
+//              var date = moment(start).format('YYYY-MM-DD'); 
+//              alert('Вы выбрали дату: ' + date);
+//              }, 
+//              eventLimit: true, // Показать "больше" в случае превышения количества событий
+//              validRange: { start: moment().format('YYYY-MM-DD') // Минимальная дата - текущая дата 
+//                 }
+//         });
+//     });
 
 
     

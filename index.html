@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Danfo&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -29,7 +30,7 @@
                         <div class="col-sm-4 d-none d-sm-block">
                             <ul class="social-icons d-flex justify-content-center">
                                 <li><a href="https://youtu.be/VoCDV8uImLM?feature=shared"><i class="fa-brands fa-youtube"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="training_type.html"><i class="fa-brands fa-facebook-f"></i></a></li>
                                 <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
                             </ul>
                         </div>
@@ -164,35 +165,31 @@
                             <a class="nav-link" href="about.html">О нас</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                                Тренировки
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li>
-                                    <a class="dropdown-item" href="category.html">
-                                        Подвесной тренинг
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="category.html">
-                                        HIIT 
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="category.html">
-                                        KIDS HIIT
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="category.html">
-                                        Стрейчинг
-                                    </a>
-                                </li>
-                                
-                            </ul>
+                            <div class="container"> 
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" id="training-type">
+                                    Тренировки
+                                </a> 
+                                <ul class="dropdown-menu dropdown-menu-end" id="trainingDropdown">  
+                                    <script>
+                                     $(document).ready(function() { // Загрузка типов тренировок 
+                                        $.ajax({ 
+                                            url: 'get_trainings.php', 
+                                            method: 'GET', 
+                                            success: function(data) { 
+                                                $('.dropdown-menu').html(data);
+                                             } }); // Обработка выбора тренировки 
+                                             $(document).on('click', '.dropdown-item', function() { 
+                                                var trainingId = $(this).data('id');
+                                                 window.location.href = 'category.html?id=' + trainingId;
+                                                  }); });
+                                    </script>                  
+                                    <a class="dropdown-item" href="#">Загрузка...
+                                    </a>   
+                                </ul>                                
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="workers.html">Персонал</a>
+                            <a class="nav-link" href="workers.php">Персонал</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Расписание</a>
@@ -226,36 +223,31 @@
                   <div class="carousel-item active" data-bs-interval="10000">
                     <img src="assets/img/slider/1.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                       
                       </div>
                   </div>
                   <div class="carousel-item" data-bs-interval="2000">
                     <img src="assets/img/slider/2.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                        
                       </div>
                   </div>
                   <div class="carousel-item">
                     <img src="assets/img/slider/3.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                       
                       </div>
                   </div>
                   <div class="carousel-item">
                     <img src="assets/img/slider/4.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                       
                       </div>
                   </div>
                   <div class="carousel-item">
                     <img src="assets/img/slider/5.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                        
                       </div>
                   </div>
                 </div>
@@ -636,7 +628,9 @@
     
 
     <script scr ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
     <script src="assets/js/main.js/main.js"></script>
+    
 </body>
 </html>
