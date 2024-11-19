@@ -7,13 +7,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-        $stmt = $conn->prepare("SELECT * FROM user WHERE username = ? AND password = ?");
-        $stmt->bind_param("ss", $username, $password);
+        $stmt = $conn->prepare("SELECT password FROM user WHERE username = ?");
+        $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
-            $response["success"] = true;
+            $row = $result->fetch_assoc();
+            $hashed_password = $row['password'];
+
+            if (password_verify($password, $hashed_password)) {
+                $response["success"] = true;
+            } else {
+                $response["success"] = false;
+            }
         } else {
             $response["success"] = false;
         }

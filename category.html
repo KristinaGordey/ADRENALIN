@@ -301,17 +301,18 @@
                     </div>
                     <script>
                      $(document).ready(function() { // Получение параметра id из URL 
-                        var urlParams = new URLSearchParams(window.location.search); 
-                        var trainingId = urlParams.get('id'); // Загрузка информации о тренировке 
+                        var urlParams = new URLSearchParams(window.location.search); //извлекаем параметры URL текущего
+                        var trainingId = urlParams.get('id'); // извлекаем id из URL
                         if (trainingId) { 
                             $.ajax({ 
                                 url: 'get_training_info.php', 
                                 method: 'GET', 
-                                data: { id: trainingId }, 
+                                data: { id: trainingId }, //отправляем id
                                 success: function(data) 
-                                { var training = JSON.parse(data);
+                                { var training = JSON.parse(data);//преобразуем строку json полученную из сервера в обьект javascript
                                  $('#trainingName span').text(training.name);
                                   $('#trainingDescription').text(training.description);
+                                  $('#description-tab-pane').text(training.small_description);
                                    }
                                     }); 
                                     } 
@@ -343,20 +344,7 @@
                           </ul>
                           <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel"
-                             aria-labelledby="description-tab" tabindex="0">Основные характеристики HIIT (высокоинтенсивных интервальных тренировок):
-                             Интервалы высокой интенсивности: HIIT включает короткие всплески
-                             интенсивной физической активности, которые чередуются с периодами
-                             отдыха или низкоинтенсивных упражнений. Такие интервалы позволяют
-                             максимально нагрузить мышцы и увеличить сердечный ритм.
-                             Экономия времени: HIIT-тренировки обычно короткие — от 15 до 30 минут,
-                             но они обеспечивают высокую эффективность за счет интенсивного подхода. 
-                             Это идеальный вариант для занятых людей, желающих улучшить физическую
-                             форму за ограниченное время.
-                             Улучшение метаболизма: После HIIT-тренировок уровень метаболизма остается 
-                             повышенным на протяжении нескольких часов, что помогает сжигать калории даже
-                             после завершения тренировки. Это явление, известное как "послетренировочный
-                             эффект", способствует более эффективному снижению веса и улучшению общей
-                             физической формы.                          
+                             aria-labelledby="description-tab" tabindex="0">Основные характеристики                         
                              </div>
                             <div class="tab-pane fade" id="features-tab-pane" role="tabpanel"
                              aria-labelledby="features-tab" tabindex="0">

@@ -207,12 +207,18 @@ ul.social-icons a:hover {
     color:#fff;
     transition: all .3s;
     letter-spacing: .1rem;
+    
 }
 .header-bottom .navbar .nav-link:hover {
     color: var(--accent-color);    
 }
 .dropdown-menu .dropdown-item {
     color:var(--text-color);
+    
+}
+#training-type{
+    margin-left: -12px;
+    
 }
 .header-bottom .navbar .nav-link.active {
     color: var(--accent-color);
@@ -220,9 +226,12 @@ ul.social-icons a:hover {
 .header-bottom .navbar .dropdown-menu {
     margin-top: 7px;
 }
+
 .headernav-scroll.header-bottom .navbar .offcanvas:not(.show) .nav-link {
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
+    
+    
 }
 
 

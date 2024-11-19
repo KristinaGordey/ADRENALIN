@@ -64,6 +64,31 @@
                 </div>
             </div> <!--header-top-->
 
+            
+
+            <div class="modal" tabindex="-1" role="dialog" id="welcomeModal" style="display: none;" >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Adrenalin</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Добро пожаловать, <span id="username"></span>! </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
             <div class="header-middle bg-white py-4">
                 <div class="container-fluid">
                     <div class="row align-items-center">
@@ -242,7 +267,7 @@
 
                             <div class="row">
                                 <div class="col-md-6 offset-md-3">
-                                    <form action="login.php" method = "POST" class="needs-validation" id = "login-form"novalidate>
+                                    <form action="login.php" method = "post" class="needs-validation" id = "login-form" novalidate>
                                         <div class="mb-3">
                                             <label for="username" class="form-label required">Имя</label>
                                             <input type="text" class="form-control" id="username" name ="username" placeholder="Имя"

@@ -515,7 +515,7 @@
 
                         </div>
                     </div>-->
-                    <div class="container"> 
+                    <div class="container-fluid"> 
                         <div class="row"> 
                             <?php include 'config.php'; 
                             $sql = "SELECT full_name, description, photo_path FROM trainers";
