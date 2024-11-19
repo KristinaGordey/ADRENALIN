@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Danfo&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/main.css/main.css">
@@ -35,15 +35,18 @@
                             <div class="header-top-account d-flex justify-content-end">
                                 <div class="btn-group me-2">
                                     <div class="dropdown">
-                                        <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button class="btn btn-sm dropdown-toggle" type="button" id ="account-button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Аккаунт
                                         </button>
                                         <ul class="dropdown-menu">
-                                          <li><a class="dropdown-item" href="loginhtml.php">Войти</a></li>
+                                          <li><a class="dropdown-item" href="login.html">Войти</a></li>
                                           <li><a class="dropdown-item" href="register.html">Зарегистрироваться</a></li>
                                         </ul>
                                     </div>
                                 </div>
+
+                               
+                                
                                 <div class="btn-group">
                                     <div class="dropdown">
                                         <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -159,45 +162,42 @@
                             <a class="nav-link active" aria-current="page" href="index.html">Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">О нас</a>
+                            <a class="nav-link" href="about.html">О нас</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                                Тренировки
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li>
-                                    <a class="dropdown-item" href="category.html">
-                                        Подвесной тренинг
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="category.html">
-                                        HIIT 
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="category.html">
-                                        KIDS HIIT
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="category.html">
-                                        Стрейчинг
-                                    </a>
-                                </li>
-                                
-                            </ul>
+                            <div class="container"> 
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" id="training-type">
+                                    Тренировки
+                                </a> 
+                                <ul class="dropdown-menu dropdown-menu-end" id="trainingDropdown">  
+                                    <script>
+                                     $(document).ready(function() { // Загрузка типов тренировок 
+                                        $.ajax({ 
+                                            url: 'get_trainings.php', 
+                                            method: 'GET', 
+                                            success: function(data) { //функция выполняется после успешного получения данных
+                                                $('#trainingDropdown').html(data);//установка содержимого элемента
+                                             } }); // Обработка выбора тренировки 
+                                             $(document).on('click', '.dropdown-item', function() { //отслеживаем клики по элементам дропдауна
+                                                var trainingId = $(this).data('id');//извлекаем значение атрибута id из элемента по которому кликнули
+                                                 window.location.href = 'category.html?id=' + trainingId;//перенаправляем пользователя на страницу, добавляем id к URL
+                                                  }); });
+                                    </script>                  
+                                    <a class="dropdown-item" href="#">Загрузка...
+                                    </a>   
+                                </ul>                                
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="workers.html">Персонал</a>
+                            <a class="nav-link" href="workers.php">Персонал</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Расписание</a>
+                            <a class="nav-link" href="cart.html">Расписание</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Прайс</a>
-                        </li>                       
+                        </li> 
+                                              
                         </ul>
                     </div>
                   </div>
@@ -314,6 +314,7 @@
         <i class="fa fa-arrow-up" aria-hidden="true"></i>
     </button>
     <script scr ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
     <script src="assets/js/main.js/main.js"></script>
 </body>

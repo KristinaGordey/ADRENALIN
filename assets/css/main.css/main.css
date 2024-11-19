@@ -37,6 +37,9 @@ img {
     border-radius: 0;
     background-color: #fff;
     
+  
+    
+    
 }
 .form-control{
     border-color:var(--gray-color);
@@ -190,6 +193,10 @@ ul.social-icons a:hover {
     background-color: var(--text-color);
 }
 
+
+
+
+
 .header-bottom {
     border-top: 3px solid var(--accent-color);
     box-shadow: 0 10px 10px rgba(0,0,0,.3);
@@ -236,6 +243,7 @@ ul.social-icons a:hover {
 
 
 /*========================Меню=============================*/
+.no-arrow::after { display: none !important; /* Убирает иконку стрелки */ }
 /*========================Страница категорий=============================*/
 .breadcrumbs {
     margin: 30px 0;

@@ -2,12 +2,12 @@ document.addEventListener("DOMContentLoaded", function() {
     var loginForm = document.getElementById("login-form");
     if (loginForm) {
         loginForm.addEventListener("submit", function(event) {
-            event.preventDefault();
+            event.preventDefault(); //отмена стандартного поведения формы
 
             var form = event.target;
             var formData = new FormData(form);
 
-            fetch(form.action, {
+            fetch(form.action, { //асинхронный запрос на сервер с использованием метода и URL-адреса, указанных в атрибутах action и method формы.
                 method: form.method,
                 body: formData
             })
@@ -21,9 +21,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (data.success) {
                     console.log("Аутентификация успешна. Перенаправление..."); 
 
+                    localStorage.setItem('isAuthenticated', 'true'); 
+                    sessionStorage.setItem('isAuthenticated', 'true');
+
                     // Извлекаем имя пользователя из FormData
                     var username = formData.get('username'); 
                     console.log(username); 
+
+
+                    
 
                     // Обновляем содержимое модального окна
                     document.getElementById("username").textContent = username; 

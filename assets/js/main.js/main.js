@@ -54,6 +54,108 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 });
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     var isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';
+//     var accountButton = document.getElementById('account-button');
+//     var dropdownMenu = document.querySelector('.dropdown-menu');
+//     var dropdownItems = document.querySelectorAll('.dropdown-menu .dropdown-item');
+
+//     function updateDropdown(condition) {
+//         if (condition && accountButton) {
+//             accountButton.innerText = 'Выйти';
+//             accountButton.classList.add('no-arrow'); // Добавляем класс для скрытия стрелки
+//             dropdownItems.forEach(item => { 
+//                 item.style.display = 'none'; 
+//             });
+//            dropdownMenu.style.display = 'none'; // Скрываем весь выпадающий список
+//         } else if (accountButton) {
+//             accountButton.innerText = 'Аккаунт';
+//             accountButton.classList.remove('no-arrow'); // Убираем класс для скрытия стрелки
+//             dropdownItems.forEach(item => { 
+//                 item.style.display = 'block'; 
+//             });
+//             dropdownMenu.style.display = 'block'; // Восстанавливаем отображение выпадающего списка
+//         }
+//     }
+
+//     // Проверка условия при загрузке страницы
+//     updateDropdown(isAuthenticated);
+
+//     // Событие при клике на кнопку
+//     if (accountButton) {
+//         accountButton.addEventListener('click', function(event) {
+//             event.stopPropagation(); // Останавливаем распространение события
+    
+//             if (isAuthenticated) {
+//                 isAuthenticated = false;
+//                 sessionStorage.setItem('isAuthenticated', isAuthenticated.toString());
+//                 updateDropdown(isAuthenticated);
+//             } else {
+//                 dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+//             }
+//         });
+//     }
+    
+
+//     // Добавляем слушатель событий на документ
+//     document.addEventListener('click', function(event) { 
+//         if (!accountButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+//              dropdownMenu.style.display = 'none'; 
+//             } 
+//             event.stopPropagation(); // Останавливаем распространение события 
+//             });
+// });
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';//проверка состояния аутентификации
+    var accountButton = document.getElementById('account-button');
+    var dropdownItems = document.querySelectorAll('.dropdown-menu .dropdown-item');
+
+    function updateDropdown(condition) {
+        if (condition && accountButton) {
+            accountButton.innerText = 'Выйти';
+            accountButton.classList.add('no-arrow'); // Добавляем класс для скрытия стрелки
+            dropdownItems.forEach(item => { 
+                item.style.display = 'none'; 
+            });
+        } else if (accountButton) {
+            accountButton.innerText = 'Аккаунт';
+            accountButton.classList.remove('no-arrow'); // Убираем класс для скрытия стрелки
+            dropdownItems.forEach(item => { 
+                item.style.display = 'block'; 
+            });
+        }
+    }
+
+    // Проверка условия при загрузке страницы, чтобы сразу настроить отображение элементов 
+    updateDropdown(isAuthenticated);
+
+    // Событие при клике на кнопку
+    if (accountButton) {
+        accountButton.addEventListener('click', function(event) {
+            event.stopPropagation(); // Останавливаем распространение события
+    
+            if (isAuthenticated) {
+                isAuthenticated = false;
+                sessionStorage.setItem('isAuthenticated', isAuthenticated.toString());
+                updateDropdown(isAuthenticated);
+            }
+        });
+    }
+    
+    // Добавляем слушатель событий на документ
+    document.addEventListener('click', function(event) { 
+        event.stopPropagation(); // Останавливаем распространение события 
+    });
+});
+
+
+
+
 // //календарь на странице записи
 // $(document).ready(function() { 
 //     // Инициализация календаря 
