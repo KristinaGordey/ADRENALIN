@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (data.success) {
                     console.log("Аутентификация успешна. Перенаправление..."); 
 
-                    localStorage.setItem('isAuthenticated', 'true'); 
+                    //localStorage.setItem('isAuthenticated', 'true'); 
                     sessionStorage.setItem('isAuthenticated', 'true');
 
                     // Извлекаем имя пользователя из FormData

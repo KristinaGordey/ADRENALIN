@@ -35,11 +35,7 @@ img {
 }
 .btn, .dropdown-menu, .form-control {
     border-radius: 0;
-    background-color: #fff;
-    
-  
-    
-    
+    background-color: #fff;   
 }
 .form-control{
     border-color:var(--gray-color);

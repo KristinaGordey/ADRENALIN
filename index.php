@@ -70,7 +70,7 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-sm-6 col-lg-4 ">
-                            <a href="index.html" class ="header-logo h1">Adrenalin</a>
+                            <a href="index.php" class ="header-logo h1">Adrenalin</a>
                         </div>
                         
                         <div class=" col-lg-4 order-md-2 cart-buttons text-end d-none d-lg-block">
@@ -159,7 +159,7 @@
                         
                         <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Главная</a>
+                            <a class="nav-link active" aria-current="page" href="index.php">Главная</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">О нас</a>
@@ -312,196 +312,35 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                            <div class="worker-card">
-                                <div class="worker-photo">
-                                    <a href="workers.html"><img src="assets/img/worker/1.jpg" alt=""></a>
-                                </div>
-                                <div class="worker-details">
-                                    <h4>
-                                        <a href="workers.html">Петров Максим Владимирович</a>
-                                    </h4>
-                                    <p class="worker-excerpt">Тренер первой квалификационной категории. Стаж 4 года</p>
-                                    <div class="worker-links d-flex justify-content-end">
-                                        <a href="login.html" class="btn btn-outline-secondary add-to-form">
-                                            Записаться
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                            <div class="worker-card">
-                                <div class="worker-photo">
-                                    <a href="workers.html"><img src="assets/img/worker/2.jpg" alt=""></a>
-                                </div>
-                                <div class="worker-details">
-                                    <h4>
-                                        <a href="workers.html">Поликарпов Максим Артёмович</a>
-                                    </h4>
-                                    <p class="worker-excerpt">Тренер второй квалификационной категории. Стаж 4 года</p>
-                                    <div class="worker-links d-flex justify-content-end">
-                                        <a href="login.html" class="btn btn-outline-secondary add-to-form">
-                                            Записаться
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                            <div class="worker-card">
-                                <div class="worker-photo">
-                                    <a href="workers.html"><img src="assets/img/worker/3.jpg" alt=""></a>
-                                </div>
-                                <div class="worker-details">
-                                    <h4>
-                                        <a href="workers.html">Рубцов Георгий Артёмович</a>
-                                    </h4>
-                                    <p class="worker-excerpt">Тренер высшей квалификационной категории. Стаж 4 года</p>
-                                    <div class="worker-links d-flex justify-content-end">
-                                        <a href="login.html" class="btn btn-outline-secondary add-to-form">
-                                            Записаться
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                            <div class="worker-card">
-                                <div class="worker-photo">
-                                    <a href="workers.html"><img src="assets/img/worker/4.jpg" alt=""></a>
-                                </div>
-                                <div class="worker-details">
-                                    <h4>
-                                        <a href="workers.html">Архипов Артём Александрович</a>
-                                    </h4>
-                                    <p class="worker-excerpt">Тренер первой квалификационной категории. Стаж 4 года</p>
-                                    <div class="worker-links d-flex justify-content-end">
-                                        <a href="login.html" class="btn btn-outline-secondary add-to-form">
-                                            Записаться
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                            <div class="worker-card">
-                                <div class="worker-photo">
-                                    <a href="workers.html"><img src="assets/img/worker/5.jpg" alt=""></a>
-                                </div>
-                                <div class="worker-details">
-                                    <h4>
-                                        <a href="workers.html">Еремин Егор Константинович</a>
-                                    </h4>
-                                    <p class="worker-excerpt">Тренер первой квалификационной категории. Стаж 4 года</p>
-                                    <div class="worker-links d-flex justify-content-end">
-                                        <a href="login.html" class="btn btn-outline-secondary add-to-form">
-                                            Записаться
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                            <div class="worker-card">
-                                <div class="worker-photo">
-                                    <a href="workers.html"><img src="assets/img/worker/6.jpg" alt=""></a>
-                                </div>
-                                <div class="worker-details">
-                                    <h4>
-                                        <a href="workers.html">Соколов Максим Владимирович</a>
-                                    </h4>
-                                    <p class="worker-excerpt">Тренер высшей квалификационной категории. Стаж 4 года</p>
-                                    <div class="worker-links d-flex justify-content-end">
-                                        <a href="login.html" class="btn btn-outline-secondary add-to-form">
-                                            Записаться
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                            <div class="worker-card">
-                                <div class="worker-photo">
-                                    <a href="workers.html"><img src="assets/img/worker/7.jpg" alt=""></a>
-                                </div>
-                                <div class="worker-details">
-                                    <h4>
-                                        <a href="workers.html">Козлов Артём Рустамович</a>
-                                    </h4>
-                                    <p class="worker-excerpt">Тренер второй квалификационной категории. Стаж 4 года</p>
-                                    <div class="worker-links d-flex justify-content-end">
-                                        <a href="login.html" class="btn btn-outline-secondary add-to-form">
-                                            Записаться
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                            <div class="worker-card">
-                                <div class="worker-photo">
-                                    <a href="workers.html"><img src="assets/img/worker/8.jpg" alt=""></a>
-                                </div>
-                                <div class="worker-details">
-                                    <h4>
-                                        <a href="workers.html">Андреев Константин Даниилович</a>
-                                    </h4>
-                                    <p class="worker-excerpt">Тренер первой квалификационной категории. Стаж 4 года</p>
-                                    <div class="worker-links d-flex justify-content-end">
-                                        <a href="login.html" class="btn btn-outline-secondary add-to-form">
-                                            Записаться
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                            <div class="worker-card">
-                                <div class="worker-photo">
-                                    <a href="workers.html"><img src="assets/img/worker/9.jpg" alt=""></a>
-                                </div>
-                                <div class="worker-details">
-                                    <h4>
-                                        <a href="workers.html">Смирнова Сабина Даниловна</a>
-                                    </h4>
-                                    <p class="worker-excerpt">Тренер первой квалификационной категории. Стаж 4 года</p>
-                                    <div class="worker-links d-flex justify-content-end">
-                                        <a href="login.html" class="btn btn-outline-secondary add-to-form">
-                                            Записаться
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                            <div class="worker-card">
-                                <div class="worker-photo">
-                                    <a href="workers.html"><img src="assets/img/worker/10.jpg" alt=""></a>
-                                </div>
-                                <div class="worker-details">
-                                    <h4>
-                                        <a href="workers.html">Еремина София Максимовна</a>
-                                    </h4>
-                                    <p class="worker-excerpt">Тренер первой квалификационной категории. Стаж 4 года</p>
-                                    <div class="worker-links d-flex justify-content-end">
-                                        <a href="login.html" class="btn btn-outline-secondary add-to-form">
-                                            Записаться
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                        <?php include 'config.php'; 
+                            $sql = "SELECT full_name, description, photo_path FROM trainers";
+                            $result = $conn->query($sql); 
+                            if ($result->num_rows > 0) { 
+                                while ($row = $result->fetch_assoc()) { 
+                                    
+                                    echo '<div class="col-lg-3 col-md-4 col-sm-6 mb-3">'; 
+                                    echo ' <div class="worker-card">'; 
+                                    echo ' <div class="worker-photo">'; 
+                                    echo ' <a href="workers.php"><img src="' . $row["photo_path"] . '" alt=""></a>';
+                                    echo ' </div>'; echo ' <div class="worker-details">'; 
+                                    echo ' <h4>'; 
+                                    echo ' <a href="workers.php">' . $row["full_name"] . '</a>'; 
+                                    echo ' </h4>';
+                                    echo ' <p class="worker-excerpt">' . $row["description"] . '</p>';
+                                    echo ' <div class="worker-links d-flex justify-content-end">'; 
+                                    echo ' <a href="login.html" class="btn btn-outline-secondary add-to-form">'; 
+                                    echo ' Записаться';
+                                    echo ' </a>'; 
+                                    echo ' </div>'; 
+                                    echo ' </div>'; 
+                                    echo ' </div>'; 
+                                    echo '</div>';
+                                     } } 
+                                else { 
+                                    echo "<p>Данные не найдены</p>";
+                                     } 
+                            $conn->close(); 
+                            ?> 
                     </div>
                     
                 </div>
@@ -540,7 +379,7 @@
                     <div class="col-md-3 col-6">
                         <h4>Информация</h4>
                         <ul class="list-unstyled">
-                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="index.php">Главная</a></li>
                             <li><a href="#">О нас</a></li>
                             <li><a href="#">Тренировки</a></li>
                             <li><a href="#">Персонал</a></li>

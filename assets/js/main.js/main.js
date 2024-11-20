@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {//записывать id пользователя вместо true/false, чтобы вытащить данные потом
     var isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';//проверка состояния аутентификации
     var accountButton = document.getElementById('account-button');
     var dropdownItems = document.querySelectorAll('.dropdown-menu .dropdown-item');
