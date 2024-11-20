@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($stmt->execute()) {
         // Перенаправление на index.html 
-        header("Location: index.html"); 
+        header("Location: index.php"); 
         exit();
          } else {
         echo json_encode(["success" => false, "message" => "Ошибка регистрации. Попробуйте еще раз."]);

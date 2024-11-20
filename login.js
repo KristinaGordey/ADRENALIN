@@ -20,6 +20,11 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(data => {
                 if (data.success) {
                     console.log("Аутентификация успешна. Перенаправление..."); 
+                    
+                    // Сохранение id клиента и имя пользователя в 
+                    sessionStorage.setItem('clientId', data.id); 
+                    sessionStorage.setItem('username', data.username);
+
 
                     //localStorage.setItem('isAuthenticated', 'true'); 
                     sessionStorage.setItem('isAuthenticated', 'true');
@@ -38,17 +43,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     var closeButton = document.querySelector('.btn-close'); 
                     closeButton.onclick = function() { 
                         modal.style.display = "none"; 
-                        window.location.href = "index.html"; // Перенаправление после закрытия окна 
+                        window.location.href = "index.php"; // Перенаправление после закрытия окна 
                     }; 
                     var footerButton = document.querySelector('.btn-secondary'); 
                     footerButton.onclick = function() { 
                         modal.style.display = "none"; 
-                        window.location.href = "index.html"; // Перенаправление после нажатия на кнопку 
+                        window.location.href = "index.php"; // Перенаправление после нажатия на кнопку 
                     };
                     window.onclick = function(event) { 
                         if (event.target == modal) { 
                             modal.style.display = "none"; 
-                            window.location.href = "index.html"; // Перенаправление после закрытия окна 
+                            window.location.href = "index.php"; // Перенаправление после закрытия окна 
                         } 
                     };
                 } else {
