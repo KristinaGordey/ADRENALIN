@@ -38,28 +38,29 @@ document.addEventListener("DOMContentLoaded", function() {
                     var closeButton = document.querySelector('.btn-close'); 
                     closeButton.onclick = function() { 
                         modal.style.display = "none"; 
-                        window.location.href = "index.html"; // Перенаправление после закрытия окна 
+                        window.location.href = "index.php"; // Перенаправление после закрытия окна 
                     }; 
                     var footerButton = document.querySelector('.btn-secondary'); 
                     footerButton.onclick = function() { 
                         modal.style.display = "none"; 
-                        window.location.href = "index.html"; // Перенаправление после нажатия на кнопку 
+                        window.location.href = "index.php"; // Перенаправление после нажатия на кнопку 
                     };
                     window.onclick = function(event) { 
                         if (event.target == modal) { 
                             modal.style.display = "none"; 
-                            window.location.href = "index.html"; // Перенаправление после закрытия окна 
+                            window.location.href = "index.php"; // Перенаправление после закрытия окна 
                         } 
                     };
                 } else {
                     console.log("Аутентификация не удалась.");
                     document.getElementById("error-message").style.display = "block";
+                    document.getElementById("error-exist-login-message").style.display = "block"
                 }
             })
             .catch(error => {
                 console.error("Ошибка:", error);
                 document.getElementById("error-message").textContent = "Произошла ошибка. Попробуйте снова.";
-                document.getElementById("error-message").style.display = "block";
+                
             });
         });
     } else {

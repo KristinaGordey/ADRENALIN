@@ -192,7 +192,7 @@
                             <a class="nav-link" href="cart.html">Расписание</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Прайс</a>
+                            <a class="nav-link" href="price.php">Прайс</a>
                         </li> 
                                               
                         </ul>
@@ -215,8 +215,7 @@
 
         </div><!--header bottom-->
         <main class="main">
-            <section class ="workers">
-                
+            <section class ="workers">          
                 <div class="container-fluid">
                     <div class="row mb-5">
                         <div class="col-12">
@@ -557,12 +556,12 @@
                     <div class="col-md-3 col-6">
                         <h4>Информация</h4>
                         <ul class="list-unstyled">
-                            <li><a href="index.php">Главная</a></li>
-                            <li><a href="#">О нас</a></li>
-                            <li><a href="#">Тренировки</a></li>
-                            <li><a href="#">Персонал</a></li>
-                            <li><a href="#">Расписание</a></li>
-                            <li><a href="#">Прайс</a></li>
+                        <li><a href="index.php">Главная</a></li>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="category.html?id=1">Тренировки</a></li>
+                        <li><a href="workers.php">Персонал</a></li>
+                        <li><a href="cart.html">Расписание</a></li>
+                        <li><a href="price.php">Прайс</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-6">

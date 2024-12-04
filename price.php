@@ -11,8 +11,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/main.css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css/pricestyle.css">
 </head>
 <body>
+<div class = "wrapper">
     <header class ="header">
         <div class = "header-top py-1">
             <div class = "container-fluid">
@@ -155,7 +157,7 @@
                     
                     <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Главная</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Главная</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">О нас</a>
@@ -191,7 +193,7 @@
                         <a class="nav-link" href="cart.html">Расписание</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Прайс</a>
+                        <a class="nav-link" href="price.php">Прайс</a>
                     </li> 
                                           
                     </ul>
@@ -219,27 +221,28 @@
                     <div class="row mb-5">
                         <div class="col-12">
                             <h2 class="section-title">
-                                <span>Тренерский состав</span>
+                                <span>Прайс</span>
                             </h2>
                         </div>
                     </div>
                     <div class="container-fluid"> 
                         <div class="row"> 
                             <?php include 'config.php'; 
-                            $sql = "SELECT full_name, description, photo_path FROM trainers";
+                            $sql = "SELECT id, name, small_description, price, photo_path FROM type_training";
                             $result = $conn->query($sql); 
                             if ($result->num_rows > 0) { 
                                 while ($row = $result->fetch_assoc()) { 
                                     
                                     echo '<div class="col-lg-3 col-md-4 col-sm-6 mb-3">'; 
-                                    echo ' <div class="worker-card">'; 
-                                    echo ' <div class="worker-photo">'; 
-                                    echo ' <a href="workers.php"><img src="' . $row["photo_path"] . '" alt=""></a>';
-                                    echo ' </div>'; echo ' <div class="worker-details">'; 
+                                    echo ' <div class="price-card">'; 
+                                    echo ' <div class="price-photo">'; 
+                                    echo ' <a href="category.html?id='. $row['id'] .'"><img src="' . $row["photo_path"] . '" alt=""></a>';
+                                    echo ' </div>'; echo ' <div class="price-details">'; 
                                     echo ' <h4>'; 
-                                    echo ' <a href="workers.php">' . $row["full_name"] . '</a>'; 
+                                    echo ' <a href="category.html?id='. $row['id'] .'">' . $row["name"] . '</a>'; 
                                     echo ' </h4>';
-                                    echo ' <p class="worker-excerpt">' . $row["description"] . '</p>';
+                                    echo ' <p class="price-description">' . $row["small_description"] . '</p>';
+                                    echo ' <p class="price-card-price">' . 'Цена: ' . $row["price"] . ' руб.' . '</p>';
                                     echo ' <div class="worker-links d-flex justify-content-end">'; 
                                     echo ' <a href="login.html" class="btn btn-outline-secondary add-to-form">'; 
                                     echo ' Записаться';
@@ -259,27 +262,19 @@
                     
                 </div>
     </section>
-
     </main>
-
-
-
-
-
-
-
     <footer class="footer" id="footer">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3 col-6">
                     <h4>Информация</h4>
                     <ul class="list-unstyled">
-                        <li><a href="index.html">Главная</a></li>
-                        <li><a href="#">О нас</a></li>
-                        <li><a href="#">Тренировки</a></li>
-                        <li><a href="#">Персонал</a></li>
-                        <li><a href="#">Расписание</a></li>
-                        <li><a href="#">Прайс</a></li>
+                    <li><a href="index.php">Главная</a></li>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="category.html?id=1">Тренировки</a></li>
+                        <li><a href="workers.php">Персонал</a></li>
+                        <li><a href="cart.html">Расписание</a></li>
+                        <li><a href="price.php">Прайс</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-6">
