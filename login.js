@@ -20,6 +20,11 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(data => {
                 if (data.success) {
                     console.log("Аутентификация успешна. Перенаправление..."); 
+                    
+                    // Сохранение id клиента и имя пользователя в 
+                    sessionStorage.setItem('clientId', data.id); 
+                    sessionStorage.setItem('username', data.username);
+
 
                     //localStorage.setItem('isAuthenticated', 'true'); 
                     sessionStorage.setItem('isAuthenticated', 'true');
