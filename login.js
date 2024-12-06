@@ -58,8 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     };
                 } else {
                     console.log("Аутентификация не удалась.");
-                    document.getElementById("error-message").style.display = "block";
-                    document.getElementById("error-exist-login-message").style.display = "block"
+                    document.getElementById("error-message").style.display = "block";   
                 }
             })
             .catch(error => {

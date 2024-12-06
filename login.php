@@ -3,9 +3,9 @@ include 'config.php';
 $response = array("success" => false);
 
 try {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {// убрать эту строчку 
         if (isset($_POST['username']) && isset($_POST['password'])) {
-            $username = mysqli_real_escape_string($conn, $_POST['username']);
+            $username = strtolower(mysqli_real_escape_string($conn, $_POST['username']));
             $password = mysqli_real_escape_string($conn, $_POST['password']);
 
             $stmt = $conn->prepare("SELECT id, username, password FROM user WHERE username = ?");

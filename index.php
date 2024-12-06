@@ -74,10 +74,10 @@
                         </div>
                         
                         <div class=" col-lg-4 order-md-2 cart-buttons text-end d-none d-lg-block">
-                            <a href="#" class="btn p-1">
+                            <!-- <a href="#" class="btn p-1">
                                 <i class="fa-solid fa-heart"></i>
                                 <span class="badge text-bg-warning cart-badge bg-danger  rounded-circle">3</span>
-                            </a>
+                            </a> -->
                             <button class="btn p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" ria-controls="offcanvasCart">
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 <span class="badge text-bg-warning cart-badge bg-danger  rounded-circle">4</span>
@@ -178,7 +178,7 @@
                                             success: function(data) { //функция выполняется после успешного получения данных
                                                 $('#trainingDropdown').html(data);//установка содержимого элемента
                                              } }); // Обработка выбора тренировки 
-                                             $(document).on('click', '.dropdown-item', function() { //отслеживаем клики по элементам дропдауна
+                                             $(document).on('click', '.dropdown-item.training', function() { //отслеживаем клики по элементам дропдауна
                                                 var trainingId = $(this).data('id');//извлекаем значение атрибута id из элемента по которому кликнули
                                                  window.location.href = 'category.html?id=' + trainingId;//перенаправляем пользователя на страницу, добавляем id к URL
                                                   }); });

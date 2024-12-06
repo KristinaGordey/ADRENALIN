@@ -181,7 +181,7 @@
                                             success: function(data) { //функция выполняется после успешного получения данных
                                                 $('#trainingDropdown').html(data);//установка содержимого элемента
                                              } }); // Обработка выбора тренировки 
-                                             $(document).on('click', '.dropdown-item', function() { //отслеживаем клики по элементам дропдауна
+                                             $(document).on('click', '.dropdown-item.training', function() { //отслеживаем клики по элементам дропдауна
                                                 var trainingId = $(this).data('id');//извлекаем значение атрибута id из элемента по которому кликнули
                                                  window.location.href = 'category.html?id=' + trainingId;//перенаправляем пользователя на страницу, добавляем id к URL
                                                   }); });
@@ -221,7 +221,6 @@
 
         </div><!--header bottom-->
         <main class="main">
-
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
@@ -252,6 +251,9 @@
                                     <tbody id="trainingSchedule">
                                       <script>
                     $(document).ready(function() { // Инициализация календаря 
+                        var urlParams = new URLSearchParams(window.location.search); //извлекаем параметры URL текущего
+                        var urlTrainingId = urlParams.get('trainingId');
+                        var urlTrainerId = urlParams.get('trainerId'); // извлекаем id из URL
                         $('#calendar').fullCalendar({ 
                             header: { 
                                 left: 'title', 
@@ -264,35 +266,108 @@
                                 selectable: true, 
                                 select: function(start, end, jsEvent, view) { 
                                     var date = moment(start).format('YYYY-MM-DD'); 
-                                    loadTrainings(date); }, 
+                                    $('#calendar').data('selected-date', date); // Сохранение выбранной даты 
+                                    var trainerId = $('#trainers').data('selected-trainer-id') || 0;
+                                    var typeId = $('#trainingType').data('selected-training-id') || 0;
+                                    loadTrainings(date, trainerId,typeId);
+                                }, 
                                     eventLimit: true, 
                                     validRange: { start: moment().format('YYYY-MM-DD') } 
                                 }); 
-                                
-                                // Загрузка тренировок за сегодняшнюю дату при загрузке страницы 
-                                loadTrainings(moment().format('YYYY-MM-DD')); 
-                                function loadTrainings(date) { 
+                                $(document).on('click', '.dropdown-item.trainer', function() { //отслеживаем клики по элементам дропдауна
+                                var trainerId = $(this).data('id'); 
+                                $('#trainers').data('selected-trainer-id', trainerId); // Сохранение выбранного тренера 
+                                var selectedDate = $('#calendar').data('selected-date') || moment().format('YYYY-MM-DD'); // Получаем выбранную дату или сегодняшнюю дату 
+                                var selectedTypeId = $('#trainingType').data('selected-training-id') || 0;
+                                var trainerName = $(this).text();
+                                $('#trainers').text(trainerName);
+                                loadTrainings(selectedDate, trainerId,selectedTypeId);
+                            });
+                            $(document).on('click', '.dropdown-item.training-type', function() { //отслеживаем клики по элементам дропдауна
+                                var typeId = $(this).data('id'); 
+                                $('#trainingType').data('selected-training-id', typeId); // Сохранение выбранного тренера 
+                                var selectedDate = $('#calendar').data('selected-date') || moment().format('YYYY-MM-DD'); // Получаем выбранную дату или сегодняшнюю дату 
+                                var selectedTrainerId = $('#trainers').data('selected-trainer-id') || 0;
+                                var trainingName = $(this).text();
+                                $('#trainingType').text(trainingName);
+                                loadTrainings(selectedDate, selectedTrainerId, typeId);
+                            });
+                                if(urlTrainerId === null && urlTrainingId === null)
+                                {
+                                    loadTrainings(moment().format('YYYY-MM-DD'), 0,0); 
+                                }else{
+                                    loadTrainings(moment().format('YYYY-MM-DD'),urlTrainerId,urlTrainingId);
+                                    var typeId = urlTrainingId !== null ? urlTrainingId : 0;
+                                    $('#trainingType').data('selected-training-id', typeId);
+                                    var trainerId = urlTrainerId !== null ? urlTrainerId : 0;
+                                    $('#trainers').data('selected-trainer-id', trainerId);
+                                }
+                                function loadTrainings(date, trainerId, trainingTypeId) { 
                                     $.ajax({ 
                                         url: 'get_trainings_schedule.php', 
                                         type: 'POST', 
-                                        data: {date: date}, 
+                                        data: {date: date, trainer_id: trainerId, training_type : trainingTypeId  }, // Передаем дату и id тренера 
                                         success: function(response) { 
-                                            $('#trainingSchedule').html(response);
-                                             }, 
+                                            $('#trainingSchedule').html(response); 
+                                        }, 
                                         error: function(xhr, status, error) { 
                                             console.error('Ошибка при загрузке тренировок:', status, error); 
                                         } 
                                     }); 
-                                } });                 
-                    </script>                
-                                    </tbody>
-                                    
+                                }    
+                            });                 
+                            function checkAuthentication() {
+                                 var isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true'; 
+                                 if (!isAuthenticated) { window.location.href = 'login.html'; } 
+                                 else { } }                
+                                     </script>          
+                                    </tbody>   
                                 </table>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-lg-4 mb-3">
+                    <div class="col-lg-4 mb-3"> 
+                        <h5 class="section-title"><span>Выберите тренера</span></h5>
+                        <div class="info-training p-3 bg-white dropdown-center"> 
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" id="trainers">
+                                Выберите тренера 
+                            </a> 
+                            <ul class="dropdown-menu dropdown-menu-end" id="trainersDropdown">  
+                                <script>
+                                 $(document).ready(function() { // Загрузка типов тренировок 
+                                    $.ajax({ 
+                                        url: 'get_trainers_info.php', 
+                                        method: 'GET', 
+                                        success: function(data) { //функция выполняется после успешного получения данных
+                                            $('#trainersDropdown').html(data);//установка содержимого элемента
+                                         } }); // Обработка выбора тренировки   
+                                    });
+                                </script>                  
+                                <a class="dropdown-item" href="#">Загрузка...
+                                </a>   
+                            </ul>                                
+                        </div>
+                        <h5 class="section-title"><span>Выберите тип тренировки</span></h5>
+                        <div class="info-training p-3 bg-white dropdown-center"> 
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" id="trainingType">
+                                Выберите тип тренировки
+                            </a> 
+                            <ul class="dropdown-menu dropdown-menu-end" id="trainingTypeDropdown">  
+                                <script>
+                                 $(document).ready(function() { // Загрузка типов тренировок 
+                                    $.ajax({ 
+                                        url: 'get_type_trainings_schedule.php', 
+                                        method: 'GET', 
+                                        success: function(data) { //функция выполняется после успешного получения данных
+                                            $('#trainingTypeDropdown').html(data);//установка содержимого элемента
+                                         } }); // Обработка выбора тренировки   
+                                    });
+                                </script>                  
+                                <a class="dropdown-item" href="#">Загрузка...
+                                </a>   
+                            </ul>                                
+                        </div>
                         <h5 class="section-title"><span>Выберите дату</span></h5>
                         <div class="info-training p-3 h-100 bg-white">
                              <div id="calendar"></div>

@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
 
-$name = $_POST['name'];
+$name = strtolower($_POST['name']);
 $email = $_POST['email'];
 $phone = $_POST['phone'];
 $password = $_POST['password'];
