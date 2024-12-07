@@ -62,7 +62,21 @@
                     </div>
                 </div>
             </div> <!--header-top-->
-
+            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+            <div class="modal-dialog"> 
+                <div class="modal-content"> 
+                    <div class="modal-header"> 
+                        <h5 class="modal-title">Adrenalin</h5> 
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div> 
+                     <div class="modal-body"> <p>Вы желаете удалить запись на тренировку?</p> </div> 
+                     <div class="modal-footer"> 
+                        <button type="button" class="btn btn-secondary btn-outline-secondary" data-bs-dismiss="modal">Закрыть</button> 
+                        <button type="button" class="btn btn-secondary btn-outline-secondary" id="deleteButton">Удалить</button> 
+                    </div> 
+                </div> 
+            </div> 
+            </div>
             <div class="header-middle bg-white py-4">
                 <div class="container-fluid">
                     <div class="row align-items-center">
@@ -71,13 +85,8 @@
                         </div>
                         
                         <div class=" col-lg-4 order-md-2 cart-buttons text-end d-none d-lg-block">
-                            <a href="#" class="btn p-1">
-                                <i class="fa-solid fa-heart"></i>
-                                <span class="badge text-bg-warning cart-badge bg-danger  rounded-circle">3</span>
-                            </a>
-                            <button class="btn p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" ria-controls="offcanvasCart">
+                            <button class="btn p-1" type="button" data-bs-toggle="offcanvas" onclick=getUserSchedule() data-bs-target="#offcanvasCart" ria-controls="offcanvasCart">
                                 <i class="fa-solid fa-cart-shopping"></i>
-                                <span class="badge text-bg-warning cart-badge bg-danger  rounded-circle">4</span>
                             </button>
                         </div>
                         <div class="col-lg-4 col-sm-6 order-md-1 mt-2 mt-md-0">
@@ -105,37 +114,13 @@
                 <div class="offcanvas-body">
                   <div class="table-responsive">
                     <table class="table offcanvasCart-table">
-                        <tbody>
-                            <tr>
-                                <td class="training-img-td"><a href="#"><img src="assets/img/training/a.jpeg" alt=""> </a></td>
-                                <td><a href="#">Сайкл-тренировкa</td>
-                                <td>ПН</td>
-                                <td>16:30-17:30</td>
-                                <td><button class="btn btn-secondary"><i class="fa-regular fa-circle-xmark"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td class="training-img-td"><a href="#"><img src="assets/img/training/b.jpeg" alt=""> </a></td>
-                                <td><a href="category.html">HIIT</a></td>
-                                <td>СР</td>
-                                <td>11:00-12:00</td>
-                                <td><button class="btn btn-secondary"><i class="fa-regular fa-circle-xmark"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td class="training-img-td"><a href="#"><img src="assets/img/training/c.jpeg" alt=""> </a></td>
-                                <td><a href="#">Йога</a></td>
-                                <td>ЧТ</td>
-                                <td>10:30-11:30</td>
-                                <td><button class="btn btn-secondary"><i class="fa-regular fa-circle-xmark"></i></button></td>
-                            </tr>
-                        </tbody>
-                        
+                    <tbody id="userSchedule">
+                    </tbody>   
                     </table>
                     </div>
                     <div class="text-end mt-3">    
-                       <a href="cart.html" class="btn btn-outline-secondary">Записаться</a>
-                       <a href="#" class="btn btn-outline-secondary">Добавить</a>
-                    </div>
-                    
+                      <a href="cart.html" class="btn btn-outline-secondary">Записаться на тренировку</a>
+                    </div> 
                 </div>
             </div>
 
@@ -200,15 +185,9 @@
                   </div>
                   
                   <div class ="d-block d-lg-none  " >
-                      <a href="#" class="btn p-1">
-                          <i class="fa-solid fa-heart"></i>
-                          <span class="badge text-bg-warning cart-badge bg-danger  rounded-circle">3</span>
-                      </a>
-                      <button class="btn p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" ria-controls="offcanvasCart">
+                      <button class="btn p-1" type="button" data-bs-toggle="offcanvas" onclick=getUserSchedule() data-bs-target="#offcanvasCart" ria-controls="offcanvasCart">
                           <i class="fa-solid fa-cart-shopping"></i>
-                          <span class="badge text-bg-warning cart-badge bg-danger  rounded-circle">4</span>
                       </button>
-                  
                   </div>
                 </div>
               </nav>
@@ -318,5 +297,6 @@
     <script scr ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
     <script src="assets/js/main.js/main.js"></script>
+    <script src="userSchedule.js"></script>
 </body>
 </html>

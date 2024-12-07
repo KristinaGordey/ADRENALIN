@@ -24,38 +24,19 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Сохранение id клиента и имя пользователя в 
                     sessionStorage.setItem('clientId', data.id); 
                     sessionStorage.setItem('username', data.username);
-
-
                     //localStorage.setItem('isAuthenticated', 'true'); 
                     sessionStorage.setItem('isAuthenticated', 'true');
 
                     // Извлекаем имя пользователя из FormData
                     var username = formData.get('username'); 
                     console.log(username); 
-
-
-                    
-
                     // Обновляем содержимое модального окна
                     document.getElementById("username").textContent = username; 
-                    var modal = document.getElementById("welcomeModal"); 
-                    modal.style.display = "block"; 
-                    var closeButton = document.querySelector('.btn-close'); 
-                    closeButton.onclick = function() { 
-                        modal.style.display = "none"; 
-                        window.location.href = "index.php"; // Перенаправление после закрытия окна 
-                    }; 
-                    var footerButton = document.querySelector('.btn-secondary'); 
-                    footerButton.onclick = function() { 
-                        modal.style.display = "none"; 
-                        window.location.href = "index.php"; // Перенаправление после нажатия на кнопку 
-                    };
-                    window.onclick = function(event) { 
-                        if (event.target == modal) { 
-                            modal.style.display = "none"; 
-                            window.location.href = "index.php"; // Перенаправление после закрытия окна 
-                        } 
-                    };
+                    var modal = new bootstrap.Modal(document.getElementById("welcomeModal")); 
+                    modal.show(); 
+                    $('#welcomeModal').on('hidden.bs.modal', function () { 
+                        window.location.href = 'index.php'; 
+                        });
                 } else {
                     console.log("Аутентификация не удалась.");
                     document.getElementById("error-message").style.display = "block";   

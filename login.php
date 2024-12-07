@@ -3,7 +3,7 @@ include 'config.php';
 $response = array("success" => false);
 
 try {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {// убрать эту строчку 
+   
         if (isset($_POST['username']) && isset($_POST['password'])) {
             $username = strtolower(mysqli_real_escape_string($conn, $_POST['username']));
             $password = mysqli_real_escape_string($conn, $_POST['password']);
@@ -26,7 +26,7 @@ try {
 
             $stmt->close();
         }
-    }
+    
 } catch (Exception $e) {
     error_log("Ошибка: " . $e->getMessage());
 }

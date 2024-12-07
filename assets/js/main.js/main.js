@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 sessionStorage.setItem('isAuthenticated', isAuthenticated.toString());
                 updateDropdown(isAuthenticated);
                 sessionStorage.removeItem('username');
+                sessionStorage.removeItem('clientId');
             }
         });
     }

@@ -10,26 +10,26 @@ $trainingTypeId = isset($_POST['training_type']) ? (int)$_POST['training_type'] 
 // SQL-запрос для получения данных из таблицы training по выбранной дате и id тренера
 if ($trainerId == 0 and $trainingTypeId == 0) {
     // Если id тренера равен 0, выбираем все тренировки на выбранную дату
-    $sql = "SELECT t.type_training, t.training_date, t.training_time, c.full_name, tt.name 
+    $sql = "SELECT t.id, t.type_training, t.training_date, t.training_time, c.full_name, tt.name 
             FROM training t 
             JOIN trainers c ON t.coach_id = c.id 
             JOIN type_training tt ON t.type_training = tt.id
             WHERE t.training_date = '$selectedDate'";
 } else if($trainingTypeId == 0) {
     // Если id тренера не равен 0, выбираем тренировки с соответствующим id тренера и выбранной датой
-    $sql = "SELECT t.type_training, t.training_date, t.training_time, c.full_name, tt.name 
+    $sql = "SELECT t.id, t.type_training, t.training_date, t.training_time, c.full_name, tt.name 
             FROM training t 
             JOIN trainers c ON t.coach_id = c.id 
             JOIN type_training tt ON t.type_training = tt.id
             WHERE t.training_date = '$selectedDate' AND t.coach_id = $trainerId";
 }else if($trainerId == 0){
-    $sql = "SELECT t.type_training, t.training_date, t.training_time, c.full_name, tt.name 
+    $sql = "SELECT t.id, t.type_training, t.training_date, t.training_time, c.full_name, tt.name 
             FROM training t 
             JOIN trainers c ON t.coach_id = c.id 
             JOIN type_training tt ON t.type_training = tt.id
             WHERE t.training_date = '$selectedDate' AND t.type_training = $trainingTypeId";
 }else{
-    $sql = "SELECT t.type_training, t.training_date, t.training_time, c.full_name, tt.name 
+    $sql = "SELECT t.id, t.type_training, t.training_date, t.training_time, c.full_name, tt.name 
             FROM training t 
             JOIN trainers c ON t.coach_id = c.id 
             JOIN type_training tt ON t.type_training = tt.id
@@ -50,7 +50,7 @@ if ($result->num_rows > 0) {
         $trainings .= "<td>{$date}</td>";
         $trainings .= "<td>{$time}</td>";
         $trainings .= "<td>{$row['full_name']}</td>";
-        $trainings .= "<td><button class='btn btn-secondary' onclick='checkAuthentication()'><i class='fa-regular fa-square-plus'></i></button></td>";
+        $trainings .= "<td><button class='btn btn-secondary' onclick='checkAuthentication({$row['id']}, \"{$row['name']}\", \"{$row['full_name']}\", \"{$date}\", \"{$time}\")'><i class='fa-regular fa-square-plus'></i></button></td>";
         $trainings .= "</tr>";
     }
 } else {

@@ -69,7 +69,7 @@ img {
 
 }*/
 
-.category-btn{
+.category-btn,.btn-modal{
     background-color: var(--contrast-color);
     color: var(--gray-color);
 }
