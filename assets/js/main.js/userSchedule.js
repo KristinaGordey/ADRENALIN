@@ -1,7 +1,7 @@
 function getUserSchedule(){ // Загрузка типов тренировок 
     var clientId = sessionStorage.getItem('clientId'); 
     $.ajax({ 
-       url: 'get_user_schedule.php', 
+       url: 'assets/php/get_user_schedule.php', 
        method: 'POST', 
        data: {user_id: clientId}, 
        success: function(data) { 
@@ -15,7 +15,7 @@ function getUserSchedule(){ // Загрузка типов тренировок
     // Обработка нажатия на кнопку "Удалить" 
     document.getElementById('deleteButton').onclick = function() { 
     $.ajax({ 
-    url: 'delete_record.php', 
+    url: 'assets/php/delete_record.php', 
     type: 'POST', 
     data: {record_id: recordId}, 
     success: function(response) { 

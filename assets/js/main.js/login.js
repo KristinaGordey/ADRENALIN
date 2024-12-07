@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     var modal = new bootstrap.Modal(document.getElementById("welcomeModal")); 
                     modal.show(); 
                     $('#welcomeModal').on('hidden.bs.modal', function () { 
-                        window.location.href = 'index.php'; 
+                        window.location.href = 'index.html'; 
                         });
                 } else {
                     console.log("Аутентификация не удалась.");
