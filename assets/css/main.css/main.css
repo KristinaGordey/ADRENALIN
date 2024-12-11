@@ -109,6 +109,9 @@ section{
     /*z-index: -1;*/
     
 }
+.mini-desc-icon{
+    margin-right: 1rem;
+}
 .dropdown {
     margin-right: 15px;
 }
@@ -233,6 +236,7 @@ ul.social-icons a:hover {
 
 #training-type{
     margin-left: -12px;
+    margin-right: -30px;
     
 }
 .header-bottom .navbar .nav-link.active {
@@ -453,9 +457,13 @@ footer a:hover{
     opacity: 1;
 }
 
+#signUpButton{
+    display: none;
+}
 @media only screen and (max-width:992px){
     .header-bottom .navbar .dropdown-menu {
-        padding-left: 1rem;
+        /* padding-left: 1rem; */
+        border-color: var(--contrast-color);
     }
     .btn {
         background-color: var(--contrast-color);

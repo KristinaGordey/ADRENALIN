@@ -121,7 +121,7 @@
                     </table>
                     </div>
                     <div class="text-end mt-3">    
-                      <a href="cart.html" class="btn btn-outline-secondary">Записаться на тренировку</a>
+                      <a href="cart.html" class="btn btn-outline-secondary" id="signUpButton">Записаться на тренировку</a>
                     </div> 
                 </div>
             </div>
@@ -153,7 +153,7 @@
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" id="training-type">
                                     Тренировки
                                 </a> 
-                                <ul class="dropdown-menu dropdown-menu-end" id="trainingDropdown">              
+                                <ul class="dropdown-menu dropdown-menu-start" id="trainingDropdown">              
                                     <a class="dropdown-item" href="#">Загрузка...
                                     </a>   
                                 </ul>                                
@@ -213,34 +213,7 @@
                                  Записаться
                              </a> 
                         </div>
-                        <div class="row mt-3">
-                            <div class="col-lg-4 mb-2">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="fa-solid fa-bolt"></i> Быстрота</h5>
-                                        <p class="card-text">Тренировки длительностью от 20 до 30 минут подходят даже для самых загруженных графиков.</p>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 mb-2">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="fa-solid fa-check"></i> Эффективность</h5>
-                                        <p class="card-text">Исследования показывают, что HIIT позволяет сжигать больше жира и калорий, чем традиционные кардиотренировки.</p>
-                                       
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 mb-2">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><i class="fa-sharp fa-solid fa-clover"></i> Разнообразие</h5>
-                                        <p class="card-text">Каждое занятие уникально — Вы не успеете заскучать благодаря смене упражнений и форматов тренировок.</p>
-                                       
-                                    </div>
-                                </div>
-                            </div>   
+                        <div class="row mt-3" id="training-container">
                         </div>
                     </div>
                     </div>      

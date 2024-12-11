@@ -1,4 +1,11 @@
+
 function getUserSchedule(){ // Загрузка типов тренировок 
+    var isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';
+    if(isAuthenticated){
+    document.getElementById('signUpButton').style.display = 'inline';
+    }else{
+        document.getElementById('signUpButton').style.display = 'none';
+    }
     var clientId = sessionStorage.getItem('clientId'); 
     $.ajax({ 
        url: 'assets/php/get_user_schedule.php', 
