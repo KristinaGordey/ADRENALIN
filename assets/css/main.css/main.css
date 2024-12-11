@@ -109,6 +109,9 @@ section{
     /*z-index: -1;*/
     
 }
+.dropdown {
+    margin-right: 15px;
+}
 label.required::before{
     content: '* ';
     color:#dc3545;
@@ -166,6 +169,9 @@ ul.social-icons a:hover {
 .header-logo:hover {
     color: var(--contrast-color);
 }
+.usericon{
+    margin-right: -4px;
+} 
 .cart-buttons.btn{
     
     transition: all .3s;

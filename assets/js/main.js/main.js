@@ -60,39 +60,77 @@ document.addEventListener('DOMContentLoaded', () => {
     var accountButton = document.getElementById('account-button');
     var dropdownItems = document.querySelectorAll('.dropdown-menu .dropdown-item');
 
+    // function updateDropdown(condition) {
+    //     if (condition && accountButton) {
+    //         accountButton.innerText = username || 'Выйти';
+    //         accountButton.classList.add('no-arrow');
+    //         dropdownItems.forEach(item => { 
+    //             item.style.display = 'none'; 
+    //         });
+    //     } else if (accountButton) {
+    //         accountButton.innerText = 'Аккаунт';
+    //         accountButton.classList.remove('no-arrow');
+    //         dropdownItems.forEach(item => { 
+    //             item.style.display = 'block'; 
+    //         });
+    //     }
+    // }
     function updateDropdown(condition) {
+        let dropdownMenu = document.querySelector('.dropdown-menu');
+    
         if (condition && accountButton) {
-            accountButton.innerText = username || 'Выйти';
-            accountButton.classList.add('no-arrow');
-            dropdownItems.forEach(item => { 
-                item.style.display = 'none'; 
+            accountButton.innerText = username || 'Аккаунт';
+            accountButton.classList.add('no-arrow', 'dropdown-toggle');
+            accountButton.setAttribute('data-toggle', 'dropdown');
+            // Удаляем все старые элементы из дропдауна
+            dropdownMenu.innerHTML = '';
+            // Добавляем новый элемент для выхода
+            let logoutItem = document.createElement('a');
+            logoutItem.classList.add('dropdown-item');
+            logoutItem.innerText = 'Выйти';
+            dropdownMenu.appendChild(logoutItem);
+            // Добавляем событие для кнопки выхода
+            logoutItem.addEventListener('click', function(event) {
+                event.stopPropagation();
+                isAuthenticated = false;
+                sessionStorage.setItem('isAuthenticated', isAuthenticated.toString());
+                sessionStorage.removeItem('username');
+                sessionStorage.removeItem('clientId');
+                updateDropdown(isAuthenticated);
             });
         } else if (accountButton) {
             accountButton.innerText = 'Аккаунт';
-            accountButton.classList.remove('no-arrow');
-            dropdownItems.forEach(item => { 
-                item.style.display = 'block'; 
+            accountButton.classList.remove('no-arrow', 'dropdown-toggle');
+            accountButton.removeAttribute('data-toggle');
+            // Восстанавливаем старые элементы дропдауна
+            dropdownMenu.innerHTML = '';
+            dropdownItems.forEach(item => {
+                dropdownMenu.appendChild(item);
             });
         }
     }
+    
+    
+    
+    
 
     // Проверка условия при загрузке страницы
     updateDropdown(isAuthenticated);
 
-    // Событие при клике на кнопку
-    if (accountButton) {
-        accountButton.addEventListener('click', function(event) {
-            event.stopPropagation();
+    // // Событие при клике на кнопку
+    // if (accountButton) {
+    //     accountButton.addEventListener('click', function(event) {
+    //         event.stopPropagation();
     
-            if (isAuthenticated) {
-                isAuthenticated = false;
-                sessionStorage.setItem('isAuthenticated', isAuthenticated.toString());
-                updateDropdown(isAuthenticated);
-                sessionStorage.removeItem('username');
-                sessionStorage.removeItem('clientId');
-            }
-        });
-    }
+    //         if (isAuthenticated) {
+    //             isAuthenticated = false;
+    //             sessionStorage.setItem('isAuthenticated', isAuthenticated.toString());
+    //             updateDropdown(isAuthenticated);
+    //             sessionStorage.removeItem('username');
+    //             sessionStorage.removeItem('clientId');
+    //         }
+    //     });
+    // }
     
     // Добавляем слушатель событий на документ
     document.addEventListener('click', function(event) { 
