@@ -396,7 +396,7 @@
                             <nav class="breadcrumbs">
                                 <ul>
                                     <li><a href="index.html">Главная</a></li>
-                                    <li><span>Расписание тренировок</span></li>
+                                    <li><span>История тренировок</span></li>
                                 </ul>
                             </nav>
                         </div>
@@ -413,11 +413,11 @@
                                         <thead class="table-dark">
                                             <tr>
                                                 <th>Название</th>
+                                                <th>Тренер</th>
                                                 <th>Дата</th>
                                                 <th>Время</th>
-                                                <th>Тренер</th>
                                                 <th>Статус</th>
-                                                <th>Добавить</th>
+                                                <th>Удалить</th>
                                             </tr>
                                         </thead>
                                         <tbody id="trainingSchedule"></tbody>
@@ -425,57 +425,70 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-lg-4 mb-3">
                             <h5 class="section-title">
-                                <span>Выберите тренера</span>
+                                <span>Выберите сортировку</span>
                             </h5>
-                            <div
-                                class="info-training p-3 bg-white dropdown-center"
-                            >
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                    data-bs-auto-close="outside"
-                                    id="trainers"
-                                >
-                                    Выберите тренера
-                                </a>
-                                <ul
-                                    class="dropdown-menu dropdown-menu-end"
-                                    id="trainersDropdown"
-                                ></ul>
+                            <div class="info-training p-3 bg-white">
+                                <select id="sortOrder" class="form-select">
+                                    <option value="asc" selected>
+                                        По возрастанию
+                                    </option>
+                                    <option value="desc">По убыванию</option>
+                                </select>
                             </div>
+
                             <h5 class="section-title">
-                                <span>Выберите тип тренировки</span>
+                                <span>Выберите период</span>
                             </h5>
-                            <div
-                                class="info-training p-3 bg-white dropdown-center"
-                            >
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                    data-bs-auto-close="outside"
-                                    id="trainingType"
+                            <div class="info-training p-3 bg-white">
+                                <select
+                                    id="historyPeriod"
+                                    class="form-select"
+                                    onchange="togglePeriodInput()"
                                 >
-                                    Выберите тип тренировки
-                                </a>
-                                <ul
-                                    class="dropdown-menu dropdown-menu-end"
-                                    id="trainingTypeDropdown"
-                                ></ul>
+                                    <option value="all" selected>
+                                        Вся история
+                                    </option>
+                                    <option value="day">
+                                        За конкретный день
+                                    </option>
+                                    <option value="month">
+                                        За конкретный месяц
+                                    </option>
+                                    <option value="year">
+                                        За конкретный год
+                                    </option>
+                                </select>
                             </div>
-                            <h5 class="section-title">
-                                <span>Выберите дату</span>
-                            </h5>
-                            <div class="info-training p-3 h-100 bg-white">
-                                <div id="calendar"></div>
+
+                            <div
+                                id="periodInputWrapper"
+                                class="info-training p-3 bg-white d-none"
+                            >
+                                <input
+                                    type="date"
+                                    id="specificDate"
+                                    class="form-control d-none"
+                                />
+                                <input
+                                    type="month"
+                                    id="specificMonth"
+                                    class="form-control d-none"
+                                />
+                                <select
+                                    id="specificYear"
+                                    class="form-select d-none"
+                                ></select>
+                            </div>
+
+                            <div class="text-end mt-3">
+                                <button
+                                    class="btn btn-outline-secondary"
+                                    onclick="loadTrainingHistory()"
+                                >
+                                    Загрузить историю
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -564,10 +577,10 @@
         ></script>
 
         <script src="assets/js/main.js/checkAdmin.js"></script>
-        <script src="assets/js/main.js/main.js"></script>
         <script src="assets/js/main.js/userSchedule.js"></script>
+        <script src="assets/js/main.js/main.js"></script>
+        <script src="assets/js/main.js/userHistory.js"></script>
         <script src="assets/js/main.js/trainingDropDownNav.js"></script>
-        <script src="assets/js/main.js/generalSchedule.js"></script>
         <script src="assets/js/main.js/trainersDropDownSchedule.js"></script>
         <script src="assets/js/main.js/trainingDropDownSchedule.js"></script>
     </body>

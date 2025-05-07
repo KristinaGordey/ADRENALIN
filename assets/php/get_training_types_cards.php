@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
         $trainingsCards .= ' <p class="price-description">' . $row["small_description"] . '</p>';
         $trainingsCards .= ' <p class="price-card-price">' . 'Цена: ' . $row["price"] . ' руб.' . '</p>';
         $trainingsCards .= ' <div class="worker-links d-flex justify-content-end">'; 
-        $trainingsCards .= ' <a href="cart.html?trainingId=' .$row["id"]. '&trainerId=0" class="btn btn-outline-secondary add-to-form">'; 
+        $trainingsCards .= ' <a href="cart.html" class="btn btn-outline-secondary add-to-form">'; 
         $trainingsCards .= ' Записаться';
         $trainingsCards .= ' </a>'; 
         $trainingsCards .= ' </div>'; 

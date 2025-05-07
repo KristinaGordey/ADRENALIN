@@ -1,12 +1,12 @@
 <?php
-// Подключение к базе данных
+ 
 include 'config.php';
 
-// Получение выбранной даты и id тренера из AJAX запроса
+ 
 $userId = isset($_POST['user_id']) ? (int)$_POST['user_id'] : 0;
 $currentDate = date('Y-m-d');
 
-// SQL-запрос для получения данных из таблицы training по выбранной дате и id тренера
+ 
 $sql = "SELECT r.id, t.type_training, t.training_date, t.training_time, tr.full_name, tt.name
         FROM record r
         JOIN training t ON r.training_id = t.id 
@@ -17,18 +17,23 @@ $sql = "SELECT r.id, t.type_training, t.training_date, t.training_time, tr.full_
 $trainings = '';
 $result = $conn->query($sql);
 if ($result->num_rows > 0 && $userId > 0) {
-    // Вывод данных каждой строки
+     
     while ($row = $result->fetch_assoc()) {
-        // Приведение даты к формату день.месяц.год
+        
         $date = date("d.m.Y", strtotime($row["training_date"]));
-        // Приведение времени к формату часы:минуты
+        
         $time = date("H:i", strtotime($row["training_time"]));
+
+        $trainingDateTime = strtotime($row["training_date"] . " " . $row["training_time"]);
+        $isPast = $trainingDateTime < strtotime(date('Y-m-d H:i:s')); 
+        $buttonStatus = $isPast ? 'disabled' : '';
+
         $trainings .= "<tr>";
         $trainings .= "<td><a href='category.html?id={$row['type_training']}' class='training-content-title'>{$row['name']}</a></td>";
         $trainings .= "<td>{$date}</td>";
         $trainings .= "<td>{$time}</td>";
         $trainings .= "<td>{$row['full_name']}</td>";
-        $trainings .= "<td><button class='btn btn-secondary' onclick='deleteRecord({$row['id']})'><i class='fa-regular fa-circle-xmark'></i></button></td>";
+        $trainings .= "<td><button class='btn btn-secondary' onclick='deleteRecord({$row['id']})' {$buttonStatus}><i class='fa-regular fa-circle-xmark'></i></button></td>";
         $trainings .= "</tr>";
     }
 } else if ($userId === 0) {

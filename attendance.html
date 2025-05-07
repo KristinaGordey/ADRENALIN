@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Записаться :: Вход</title>
+        <title>Адреналин ::Главная</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -42,48 +42,22 @@
                         <div class="row">
                             <div class="col-6 col-sm-4">
                                 <div
-                                    class="header-top-phone d-flex align-items-center h-100"
+                                    class="admin-mode d-flex align-items-center"
                                 >
-                                    <i class="fa-solid fa-mobile-screen"></i>
-                                    <a href="tel:+375298525312" class="ms-2"
-                                        >+375-29-8525312</a
-                                    >
+                                    <span>Режим администратора</span>
                                 </div>
                             </div>
-                            <div class="col-sm-4 d-none d-sm-block">
-                                <ul
-                                    class="social-icons d-flex justify-content-center"
-                                >
-                                    <li>
-                                        <a
-                                            href="https://youtu.be/VoCDV8uImLM?feature=shared"
-                                            ><i class="fa-brands fa-youtube"></i
-                                        ></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                            ><i
-                                                class="fa-brands fa-facebook-f"
-                                            ></i
-                                        ></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                            ><i
-                                                class="fa-brands fa-instagram"
-                                            ></i
-                                        ></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-6 col-sm-4">
+                            <div class="col-6 col-sm-4 ms-auto">
                                 <div
                                     class="header-top-account d-flex justify-content-end"
                                 >
                                     <div
                                         class="btn-group me-2 d-flex align-items-center h-100"
                                     >
-                                        <div class="dropdown">
+                                        <div
+                                            class="dropdown"
+                                            id="account-button-wrapper"
+                                        >
                                             <button
                                                 class="btn btn-sm btn-outline-secondary dropdown-toggle"
                                                 type="button"
@@ -123,7 +97,6 @@
                     </div>
                 </div>
                 <!--header-top-->
-
                 <div class="header-middle bg-white py-4">
                     <div class="container-fluid">
                         <div class="row align-items-center">
@@ -132,62 +105,6 @@
                                     >Adrenalin</a
                                 >
                             </div>
-
-                            <div
-                                class="col-lg-6 order-md-2 cart-buttons text-end d-none d-lg-block"
-                            >
-                                <button
-                                    class="btn p-1"
-                                    type="button"
-                                    data-bs-toggle="offcanvas"
-                                    onclick="getUserSchedule()"
-                                    data-bs-target="#offcanvasCart"
-                                    ria-controls="offcanvasCart"
-                                >
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="offcanvas offcanvas-end"
-                    tabindex="-1"
-                    id="offcanvasCart"
-                    aria-labelledby="offcanvasCart"
-                >
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasCartLabel">
-                            Мои записи
-                        </h5>
-                        <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="offcanvas"
-                            aria-label="Close"
-                        ></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div class="table-responsive">
-                            <table class="table offcanvasCart-table">
-                                <tbody id="userSchedule"></tbody>
-                            </table>
-                        </div>
-                        <div class="text-end mt-3">
-                            <a
-                                href="cart.html"
-                                class="btn btn-outline-secondary"
-                                id="signUpButton"
-                                >Записаться на тренировку</a
-                            >
-                        </div>
-                        <div class="text-end mt-4">
-                            <a
-                                href="userstory.html"
-                                class="link link-secondary"
-                                id="userHistoryLink"
-                                >Посмотреть историю тренировок</a
-                            >
                         </div>
                     </div>
                 </div>
@@ -234,174 +151,35 @@
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
                                         <a
-                                            class="nav-link active"
-                                            aria-current="page"
-                                            href="index.html"
-                                            >Главная</a
+                                            class="nav-link"
+                                            href="schedule.html"
+                                        >
+                                            Расписание
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link"
+                                            href="attendance.html"
+                                            >Посещаемость</a
                                         >
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="about.html"
-                                            >О нас</a
-                                        >
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <div class="container">
-                                            <a
-                                                class="nav-link dropdown-toggle"
-                                                href="#"
-                                                role="button"
-                                                data-bs-toggle="dropdown"
-                                                aria-expanded="false"
-                                                data-bs-auto-close="outside"
-                                                id="training-type"
-                                            >
-                                                Тренировки
-                                            </a>
-                                            <ul
-                                                class="dropdown-menu dropdown-menu-start"
-                                                id="trainingDropdown"
-                                            ></ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="workers.html"
-                                            >Персонал</a
-                                        >
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="cart.html"
-                                            >Расписание</a
-                                        >
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="price.html"
-                                            >Прайс</a
+                                        <a class="nav-link" href="users.html"
+                                            >Пользователи</a
                                         >
                                     </li>
                                 </ul>
                             </div>
                         </div>
-
-                        <div class="d-block d-lg-none">
-                            <button
-                                class="btn p-1"
-                                type="button"
-                                data-bs-toggle="offcanvas"
-                                onclick="getUserSchedule()"
-                                data-bs-target="#offcanvasCart"
-                                ria-controls="offcanvasCart"
-                            >
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </button>
-                        </div>
                     </div>
                 </nav>
             </div>
             <!--header bottom-->
+            <main class="main" style="margin-top: 20px">
+                <!-- Модальное окно -->
 
-            <!-- Модальные окна -->
-            <div
-                class="modal fade"
-                id="confirmModal"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-            >
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Adrenalin</h5>
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                            ></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                Вы желаете записаться на
-                                <span id="typeTrainingName"></span> к
-                                <span id="trainerName"></span> на
-                                <span id="trainingDate"></span> в
-                                <span id="trainingTime"></span>?
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <button
-                                type="button"
-                                class="btn btn-outline-secondary"
-                                data-bs-dismiss="modal"
-                            >
-                                Закрыть
-                            </button>
-                            <button
-                                type="button"
-                                class="btn btn-outline-secondary"
-                                id="registerButton"
-                            >
-                                Записаться
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div
-                class="modal fade"
-                id="deleteModal"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-            >
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Adrenalin</h5>
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                            ></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Вы желаете удалить запись на тренировку?</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button
-                                type="button"
-                                class="btn btn-outline-secondary"
-                                data-bs-dismiss="modal"
-                            >
-                                Закрыть
-                            </button>
-                            <button
-                                type="button"
-                                class="btn btn-outline-secondary"
-                                id="deleteButton"
-                            >
-                                Удалить
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Модальные окна -->
-
-            <main class="main">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <nav class="breadcrumbs">
-                                <ul>
-                                    <li><a href="index.html">Главная</a></li>
-                                    <li><span>Расписание тренировок</span></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
+                <!-- Конец модального окна -->
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-8 mb-3">
@@ -417,7 +195,6 @@
                                                 <th>Время</th>
                                                 <th>Тренер</th>
                                                 <th>Статус</th>
-                                                <th>Добавить</th>
                                             </tr>
                                         </thead>
                                         <tbody id="trainingSchedule"></tbody>
@@ -425,7 +202,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-lg-4 mb-3">
                             <h5 class="section-title">
                                 <span>Выберите тренера</span>
@@ -471,31 +247,73 @@
                                     id="trainingTypeDropdown"
                                 ></ul>
                             </div>
-                            <h5 class="section-title">
-                                <span>Выберите дату</span>
-                            </h5>
-                            <div class="info-training p-3 h-100 bg-white">
-                                <div id="calendar"></div>
+                        </div>
+                        <div class="col-lg-8 mb-3">
+                            <div
+                                id="selectedTrainings"
+                                class="table-training p-3 h-100 bg-white"
+                            >
+                                <h5>Выбранная тренировка</h5>
+                                <div class="table-responsive">
+                                    <table
+                                        class="table align-middle table-hover"
+                                    >
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Дата</th>
+                                                <th>Время</th>
+                                                <th>Тренер</th>
+                                                <th>Статус</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody
+                                            id="selectedTrainingList"
+                                        ></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 mb-3">
+                            <div
+                                id="usersContainer"
+                                class="table-training p-3 h-100 bg-white d-none"
+                            >
+                                <h5>Записанные пользователи</h5>
+                                <div class="table-responsive">
+                                    <table
+                                        class="table align-middle table-hover"
+                                    >
+                                        <thead>
+                                            <tr>
+                                                <th>Имя</th>
+                                                <th>Телефон</th>
+                                                <th>Email</th>
+                                                <th>Статус</th>
+                                                <th>Отметить</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="usersList"></tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </main>
-
             <footer class="footer" id="footer">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-3 col-6">
                             <h4>Информация</h4>
                             <ul class="list-unstyled">
-                                <li><a href="index.html">Главная</a></li>
-                                <li><a href="about.html">О нас</a></li>
+                                <li><a href="schedule.html">Расписание</a></li>
                                 <li>
-                                    <a href="category.html?id=1">Тренировки</a>
+                                    <a href="attendance.html">Посещаемость</a>
                                 </li>
-                                <li><a href="workers.html">Персонал</a></li>
-                                <li><a href="cart.html">Расписание</a></li>
-                                <li><a href="price.html">Прайс</a></li>
+                                <li>
+                                    <a href="users.html">Пользователи</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="col-md-3 col-6">
@@ -550,6 +368,7 @@
                 </div>
             </footer>
         </div>
+
         <button id="top">
             <i class="fa fa-arrow-up" aria-hidden="true"></i>
         </button>
@@ -562,12 +381,10 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"
         ></script>
-
+        <script src="assets/js/main.js/markUsers.js"></script>
         <script src="assets/js/main.js/checkAdmin.js"></script>
         <script src="assets/js/main.js/main.js"></script>
-        <script src="assets/js/main.js/userSchedule.js"></script>
         <script src="assets/js/main.js/trainingDropDownNav.js"></script>
-        <script src="assets/js/main.js/generalSchedule.js"></script>
         <script src="assets/js/main.js/trainersDropDownSchedule.js"></script>
         <script src="assets/js/main.js/trainingDropDownSchedule.js"></script>
     </body>

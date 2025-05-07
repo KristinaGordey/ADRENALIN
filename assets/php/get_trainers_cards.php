@@ -16,7 +16,7 @@
             $trainersCards .= ' </h4>';
             $trainersCards .= ' <p class="worker-excerpt">' . $row["description"] . '</p>';
             $trainersCards .= ' <div class="worker-links d-flex justify-content-end">'; 
-            $trainersCards .= ' <a href="cart.html?trainingId=0&trainerId='. $row['id']. '" class="btn btn-outline-secondary add-to-form">'; 
+            $trainersCards .= ' <a href="cart.html" class="btn btn-outline-secondary add-to-form">'; 
             $trainersCards .= ' Записаться';
             $trainersCards .= ' </a>'; 
             $trainersCards .= ' </div>'; 
