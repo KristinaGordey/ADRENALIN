@@ -1,5 +1,9 @@
 <?php
 include 'config.php';
+header('Content-Type: application/json');
+
+file_put_contents("debug.log", print_r($_POST, true));
+
 
 if (!isset($_POST['user_id']) || !isset($_POST['training_id']) || !isset($_POST['attend_status'])) {
     echo json_encode(["status" => "error", "message" => "Некорректные данные"]);

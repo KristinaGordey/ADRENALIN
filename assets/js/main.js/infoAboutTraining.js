@@ -1,14 +1,14 @@
-$(document).ready(function() { // Получение параметра id из URL 
-    var urlParams = new URLSearchParams(window.location.search); //извлекаем параметры URL текущего
-    var trainingId = urlParams.get('id'); // извлекаем id из URL
+$(document).ready(function() { 
+    var urlParams = new URLSearchParams(window.location.search); 
+    var trainingId = urlParams.get('id'); 
     var link = `cart.html?trainingId=${trainingId}&trainerId=0`;
     if (trainingId) { 
         $.ajax({ 
             url: 'assets/php/get_training_type_info.php', 
             method: 'GET', 
-            data: { id: trainingId }, //отправляем id
+            data: { id: trainingId }, 
             success: function(data) 
-            { var training = JSON.parse(data);//преобразуем строку json полученную из сервера в обьект javascript
+            { var training = JSON.parse(data);
               var miniDescriptions = JSON.parse(training.mini_descriptions);
              $('#trainingName span').text(training.name);
               $('#trainingDescription').text(training.description);

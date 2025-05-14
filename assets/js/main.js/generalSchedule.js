@@ -1,8 +1,7 @@
 $(document).ready(function () {
-    // Инициализация календаря
-    var urlParams = new URLSearchParams(window.location.search); //извлекаем параметры URL текущего
+    var urlParams = new URLSearchParams(window.location.search);
     var urlTrainingId = urlParams.get("trainingId");
-    var urlTrainerId = urlParams.get("trainerId"); // извлекаем id из URL
+    var urlTrainerId = urlParams.get("trainerId");
     $("#calendar").fullCalendar({
         header: {
             left: "title",
@@ -15,7 +14,7 @@ $(document).ready(function () {
         selectable: true,
         select: function (start, end, jsEvent, view) {
             var date = moment(start).format("YYYY-MM-DD");
-            $("#calendar").data("selected-date", date); // Сохранение выбранной даты
+            $("#calendar").data("selected-date", date);
             var trainerId = $("#trainers").data("selected-trainer-id") || 0;
             var typeId = $("#trainingType").data("selected-training-id") || 0;
             loadTrainings(date, trainerId, typeId);
@@ -24,12 +23,11 @@ $(document).ready(function () {
         validRange: { start: moment().format("YYYY-MM-DD") },
     });
     $(document).on("click", ".dropdown-item.trainer", function () {
-        //отслеживаем клики по элементам дропдауна
         var trainerId = $(this).data("id");
-        $("#trainers").data("selected-trainer-id", trainerId); // Сохранение выбранного тренера
+        $("#trainers").data("selected-trainer-id", trainerId);
         var selectedDate =
             $("#calendar").data("selected-date") ||
-            moment().format("YYYY-MM-DD"); // Получаем выбранную дату или сегодняшнюю дату
+            moment().format("YYYY-MM-DD");
         var selectedTypeId =
             $("#trainingType").data("selected-training-id") || 0;
         var trainerName = $(this).text();
@@ -37,12 +35,11 @@ $(document).ready(function () {
         loadTrainings(selectedDate, trainerId, selectedTypeId);
     });
     $(document).on("click", ".dropdown-item.training-type", function () {
-        //отслеживаем клики по элементам дропдауна
         var typeId = $(this).data("id");
-        $("#trainingType").data("selected-training-id", typeId); // Сохранение выбранного тренера
+        $("#trainingType").data("selected-training-id", typeId);
         var selectedDate =
             $("#calendar").data("selected-date") ||
-            moment().format("YYYY-MM-DD"); // Получаем выбранную дату или сегодняшнюю дату
+            moment().format("YYYY-MM-DD");
         var selectedTrainerId = $("#trainers").data("selected-trainer-id") || 0;
         var trainingName = $(this).text();
         $("#trainingType").text(trainingName);
@@ -71,7 +68,7 @@ $(document).ready(function () {
                 trainer_id: trainerId,
                 training_type: trainingTypeId,
                 isAdmin: checkAdminAccess() ? "true" : "false",
-            }, // Передаем дату и id тренера
+            },
             success: function (response) {
                 $("#trainingSchedule").html(response);
             },
@@ -93,18 +90,18 @@ function checkAuthentication(
         window.location.href = "login.html";
     } else {
         var clientId = sessionStorage.getItem("clientId");
+        console.log(clientId);
+        console.log(trainingId);
 
-        // **Проверяем, записан ли пользователь**
         $.ajax({
             url: "assets/php/check_registration.php",
-            type: "POST",
+            method: "POST",
             data: { training_id: trainingId, user_id: clientId },
             success: function (response) {
                 console.log(response.registered);
                 if (response.registered) {
                     alert("Вы уже записаны на эту тренировку!");
                 } else {
-                    // **Показываем модальное окно**
                     document.getElementById("typeTrainingName").textContent =
                         trainingName;
                     document.getElementById("trainerName").textContent =
@@ -119,7 +116,6 @@ function checkAuthentication(
                     );
                     modal.show();
 
-                    // **Обрабатываем запись на тренировку**
                     document.getElementById("registerButton").onclick =
                         function () {
                             $.ajax({

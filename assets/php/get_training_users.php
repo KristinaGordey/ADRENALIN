@@ -1,13 +1,14 @@
 <?php
 include 'config.php';  
 
-// if (!isset($_POST['training_id'])) {
-//     echo "<tr><td colspan='5'>Ошибка</td></tr>";
-//     exit;
-// }
+if (!isset($_POST['training_id'])) {
+    echo "<tr><td colspan='5'>Ошибка</td></tr>";
+    exit;
+}
 
 
-$trainingId = $_POST['training_id'];
+
+$trainingId = (int)$_POST['training_id'];
 
 $query = "SELECT u.id, u.username, u.tel, u.email, r.attend_status
           FROM record r
@@ -42,12 +43,14 @@ if ($result->num_rows > 0) {
     }
 } else {
     $users .= "<tr><td colspan='5'>Нет записанных пользователей</td></tr>";  
-    echo $users;
+    
 }
 } else {
     $users .= "<tr><td colspan='5'>Ошибка сбора данных</td></tr>";  
-    echo $users;
+    
 }
+
+echo $users;
 
 $stmt->close();
 $conn->close();

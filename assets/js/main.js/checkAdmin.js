@@ -3,8 +3,8 @@ function checkAdminAccess() {
     let isAdmin = sessionStorage.getItem("isAdmin") === "true";
 
     if (isAuthenticated && isAdmin) {
-        return true; // Все в порядке, продолжаем работу
+        return true; 
     } else {
-        return false; // Остановка выполнения
+        return false; 
     }
 }

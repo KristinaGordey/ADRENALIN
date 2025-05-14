@@ -34,7 +34,7 @@ function manageUser(userId, action) {
         .then((data) => {
             if (data.status === "success") {
                 alert(data.message);
-                searchUsers(); // Обновляем список пользователей
+                searchUsers(); 
             }
         })
         .catch((error) => {
@@ -43,7 +43,7 @@ function manageUser(userId, action) {
         });
 }
 
-// Вызовы функций блокировки/разблокировки
+
 function blockUser(userId) {
     if (confirm("Вы уверены, что хотите заблокировать этого пользователя?")) {
         manageUser(userId, "block");

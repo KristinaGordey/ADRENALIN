@@ -1,11 +1,7 @@
 <?php
 include 'config.php';
 
-//проверка, записан ли пользователь уже на эту тренировку
-if (!isset($_POST['user_id']) || !isset($_POST['training_id'])) {
-    echo json_encode(["status" => "error", "message" => "Некорректные данные"]);
-    exit;
-}
+header('Content-Type: application/json'); 
 
 $userId = (int)$_POST['user_id'];
 $trainingId = (int)$_POST['training_id'];
@@ -19,14 +15,12 @@ if (!$stmt) {
 $stmt->bind_param("ii", $userId, $trainingId);
 if ($stmt->execute()) {
     $result = $stmt->get_result();
-$row = $result->fetch_assoc();
-$stmt->close();
-$conn->close();
+    $row = $result->fetch_assoc();
+    $stmt->close();
+    $conn->close();
 
-$isRegistered = $row["count"] > 0 ? true : false; 
-
-echo json_encode(["status" => "success", "registered" => $isRegistered]);
+    $isRegistered = $row["count"] > 0;
+    echo json_encode(["status" => "success", "registered" => $isRegistered]);
 } else {
     echo json_encode(["status" => "error", "message" => "Ошибка выполнения запроса: " . $stmt->error]);
 }
-?>

@@ -1,11 +1,11 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+
 (() => {
     "use strict";
 
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    
     const forms = document.querySelectorAll(".needs-validation");
 
-    // Loop over them and prevent submission
+    
     Array.from(forms).forEach((form) => {
         form.addEventListener(
             "submit",
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Проверка состояния аутентификации
+    
     var isAuthenticated = sessionStorage.getItem("isAuthenticated") === "true";
     let isAdmin = sessionStorage.getItem("isAdmin") === "true";
     var username = sessionStorage.getItem("username");
@@ -55,21 +55,21 @@ document.addEventListener("DOMContentLoaded", () => {
         ".dropdown-menu .dropdown-item"
     );
 
-    // function updateDropdown(condition) {
-    //     if (condition && accountButton) {
-    //         accountButton.innerText = username || 'Выйти';
-    //         accountButton.classList.add('no-arrow');
-    //         dropdownItems.forEach(item => {
-    //             item.style.display = 'none';
-    //         });
-    //     } else if (accountButton) {
-    //         accountButton.innerText = 'Аккаунт';
-    //         accountButton.classList.remove('no-arrow');
-    //         dropdownItems.forEach(item => {
-    //             item.style.display = 'block';
-    //         });
-    //     }
-    // }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     function updateDropdown(condition) {
         let dropdownMenu = document.querySelector(".dropdown-menu");
 
@@ -77,14 +77,14 @@ document.addEventListener("DOMContentLoaded", () => {
             accountButton.innerText = username || "Аккаунт";
             accountButton.classList.add("no-arrow", "dropdown-toggle");
             accountButton.setAttribute("data-toggle", "dropdown");
-            // Удаляем все старые элементы из дропдауна
+            
             dropdownMenu.innerHTML = "";
-            // Добавляем новый элемент для выхода
+            
             let logoutItem = document.createElement("a");
             logoutItem.classList.add("dropdown-item");
             logoutItem.innerText = "Выйти";
             dropdownMenu.appendChild(logoutItem);
-            // Добавляем событие для кнопки выхода
+            
             logoutItem.addEventListener("click", function (event) {
                 event.stopPropagation();
                 isAuthenticated = false;
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "admin-mode"
             );
             accountButton.removeAttribute("data-toggle");
-            // Восстанавливаем старые элементы дропдауна
+            
             dropdownMenu.innerHTML = "";
             dropdownItems.forEach((item) => {
                 dropdownMenu.appendChild(item);
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Проверка условия при загрузке страницы
+    
     updateDropdown(isAuthenticated);
 
     if (!isAdmin) {
@@ -134,22 +134,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // // Событие при клике на кнопку
-    // if (accountButton) {
-    //     accountButton.addEventListener('click', function(event) {
-    //         event.stopPropagation();
+    
+    
+    
+    
 
-    //         if (isAuthenticated) {
-    //             isAuthenticated = false;
-    //             sessionStorage.setItem('isAuthenticated', isAuthenticated.toString());
-    //             updateDropdown(isAuthenticated);
-    //             sessionStorage.removeItem('username');
-    //             sessionStorage.removeItem('clientId');
-    //         }
-    //     });
-    // }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    // Добавляем слушатель событий на документ
+    
     document.addEventListener("click", function (event) {
         event.stopPropagation();
     });

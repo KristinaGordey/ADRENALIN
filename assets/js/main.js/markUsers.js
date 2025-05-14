@@ -25,9 +25,10 @@ function updateAttendance(userId) {
         })
             .then((response) => response.json())
             .then((data) => {
+                console.log(data);
                 if (data.status === "success") {
                     row.dataset.attendStatus = newStatus;
-                    row.getElementById("attend-status-text").textContent =
+                    row.querySelector("#attend-status-text").textContent =
                         newStatus === "1" ? "был" : "не был";
 
                     const button = row.querySelector(".mark-attendance");
@@ -72,6 +73,7 @@ function updateTrainings(trainerId, trainingTypeId) {
         });
 }
 function loadUsers(trainingId) {
+    console.log(trainingId);
     fetch("assets/php/get_training_users.php", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },

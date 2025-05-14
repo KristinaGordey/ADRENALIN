@@ -1,6 +1,6 @@
 function deleteTraining(trainingId) {
     if (checkAdminAccess()) {
-        if (!confirm("Вы уверены, что хотите удалить эту тренировку?")) return; // Подтверждение удаления
+        if (!confirm("Вы уверены, что хотите удалить эту тренировку?")) return; 
 
         fetch("assets/php/delete_training.php", {
             method: "POST",
@@ -11,7 +11,7 @@ function deleteTraining(trainingId) {
             .then((data) => {
                 if (data.status === "success") {
                     alert("Тренировка успешно удалена!");
-                    location.reload(); // Обновляем страницу
+                    location.reload(); 
                 } else {
                     alert("Ошибка удаления: " + data.message);
                 }

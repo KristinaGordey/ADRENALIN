@@ -1,7 +1,8 @@
 <?php
 include 'config.php';
 
-$name = strtolower($_POST['name']);
+
+$name = trim(strtolower($_POST['name']));
 $email = $_POST['email'];
 $phone = $_POST['phone'];
 $password = $_POST['password'];
@@ -10,7 +11,8 @@ $password = $_POST['password'];
 $sql = "SELECT username FROM user WHERE username = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $name);
-$stmt->store_result();
+$stmt->execute(); // <-- ЭТО ОБЯЗАТЕЛЬНО
+$stmt->store_result(); // <-- теперь работает корректно
 
 if ($stmt->num_rows > 0) {
     echo json_encode(["success" => false, "message" => "Пользователь с таким логином уже существует."]);
@@ -18,6 +20,7 @@ if ($stmt->num_rows > 0) {
     $conn->close();
     exit();
 }
+
 
 $stmt->close();
 

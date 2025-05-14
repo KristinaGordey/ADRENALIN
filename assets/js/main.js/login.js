@@ -2,13 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
     var loginForm = document.getElementById("login-form");
     if (loginForm) {
         loginForm.addEventListener("submit", function (event) {
-            event.preventDefault(); //отмена стандартного поведения формы
+            event.preventDefault(); 
 
             var form = event.target;
             var formData = new FormData(form);
 
             fetch(form.action, {
-                //асинхронный запрос на сервер с использованием метода и URL-адреса, указанных в атрибутах action и method формы.
+                
                 method: form.method,
                 body: formData,
             })
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             "Аутентификация успешна. Перенаправление..."
                         );
 
-                        // Сохранение id клиента и имя пользователя в
+                        
                         sessionStorage.setItem("clientId", data.id);
                         sessionStorage.setItem("username", data.username);
                         sessionStorage.setItem("isAuthenticated", "true");
@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         let isAdmin = sessionStorage.getItem("isAdmin");
                         console.log(typeof isAdmin);
-                        // Извлекаем имя пользователя из FormData
+                        
                         var username = formData.get("username");
                         console.log(username);
-                        // Обновляем содержимое модального окна
+                        
                         document.getElementById("username").textContent =
                             username;
                         var modal = new bootstrap.Modal(
